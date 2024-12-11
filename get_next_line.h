@@ -6,7 +6,7 @@
 /*   By: ctokuyos <ctokuyos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 19:07:06 by ctokuyos          #+#    #+#             */
-/*   Updated: 2024/12/11 11:35:25 by ctokuyos         ###   ########.fr       */
+/*   Updated: 2024/12/11 12:22:41 by ctokuyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ char	*ft_strjoin(char const *s1, char const *s2);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s);
+size_t	ft_strlen(const char *str);
 
 #endif

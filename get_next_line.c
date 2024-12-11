@@ -6,13 +6,13 @@
 /*   By: ctokuyos <ctokuyos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 19:05:52 by ctokuyos          #+#    #+#             */
-/*   Updated: 2024/12/11 11:34:09 by ctokuyos         ###   ########.fr       */
+/*   Updated: 2024/12/11 15:30:21 by ctokuyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	free_buffer(char **buf)
+static char	*free_buffer(char **buf)
 {
 	if (*buf)
 	{
@@ -78,7 +78,10 @@ char	*get_next_line(int fd)
 	line = get_line(fd, buffer, rest);
 	free_buffer(&buffer);
 	if (!line)
-		return (free_buffer(&rest));
+	{
+		free_buffer(&rest);
+		return (NULL);
+	}
 	rest = get_next_line_tail(line);
 	return (line);
 }

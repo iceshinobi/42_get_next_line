@@ -6,11 +6,21 @@
 /*   By: ctokuyos <ctokuyos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 19:09:15 by ctokuyos          #+#    #+#             */
-/*   Updated: 2024/12/11 10:12:42 by ctokuyos         ###   ########.fr       */
+/*   Updated: 2024/12/11 12:31:31 by ctokuyos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -33,12 +43,13 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	if (size != 0 && nmemb > SIZE_MAX / size)
 		return (NULL);
 	if (nmemb == 0 || size == 0)
-		retunr (malloc(0));
+		return (malloc(0));
 	temp = malloc(nmemb * size);
 	if (!temp)
 		return (NULL);
 	msize = nmemb * size;
-	ft_bzero(temp, msize);
+	while (msize)
+		temp[--msize] = 0;
 	return (temp);
 }
 
